@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Esfirra">
+  <defs>
+    <radialGradient id="e-massa" cx=".5" cy=".3" r=".8"><stop offset="0" stop-color="#efc07a"/><stop offset="1" stop-color="#c88a42"/></radialGradient>
+    <radialGradient id="e-recheio" cx=".4" cy=".3" r=".9"><stop offset="0" stop-color="#b8532f"/><stop offset=".7" stop-color="#8c3a21"/><stop offset="1" stop-color="#6e2a17"/></radialGradient>
+    <radialGradient id="e-tomate" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#ef6a55"/><stop offset="1" stop-color="#b52c1e"/></radialGradient>
+    <radialGradient id="e-sombra" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#000" stop-opacity=".45"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+  </defs>
+  <ellipse cx="100" cy="150" rx="82" ry="24" fill="url(#e-sombra)"/>
+  <!-- espessura da massa -->
+  <path d="M20 104 A80 58 0 0 0 180 104 L180 118 A80 58 0 0 1 20 118 Z" fill="#a8672a"/>
+  <path d="M20 104 A80 58 0 0 0 180 104 L180 110 A80 58 0 0 1 20 110 Z" fill="#c88a42"/>
+  <!-- massa redonda e borda levantada -->
+  <ellipse cx="100" cy="104" rx="80" ry="58" fill="url(#e-massa)"/>
+  <ellipse cx="100" cy="104" rx="66" ry="46" fill="#a95f2a"/>
+  <ellipse cx="100" cy="102" rx="64" ry="44" fill="url(#e-recheio)"/>
+  <!-- carne, cebola, tomate, salsinha -->
+  <g fill="#6a2816">
+    <ellipse cx="72" cy="92" rx="5" ry="3"/><ellipse cx="104" cy="84" rx="5" ry="3"/><ellipse cx="128" cy="104" rx="5" ry="3"/>
+    <ellipse cx="92" cy="108" rx="5" ry="3"/><ellipse cx="68" cy="116" rx="5" ry="3"/><ellipse cx="112" cy="122" rx="5" ry="3"/><ellipse cx="144" cy="92" rx="4" ry="2.6"/>
+  </g>
+  <g>
+    <ellipse cx="86" cy="98" rx="10" ry="6" fill="#8c2217"/><ellipse cx="86" cy="96" rx="10" ry="6" fill="url(#e-tomate)"/>
+    <ellipse cx="122" cy="116" rx="9" ry="5.5" fill="#8c2217"/><ellipse cx="122" cy="114" rx="9" ry="5.5" fill="url(#e-tomate)"/>
+    <ellipse cx="136" cy="94" rx="7" ry="4" fill="#8c2217"/><ellipse cx="136" cy="92" rx="7" ry="4" fill="url(#e-tomate)"/>
+  </g>
+  <g stroke="#f3e4c4" stroke-width="2.4" stroke-linecap="round" fill="none" opacity=".9">
+    <path d="M100 100 q6 -6 12 0"/><path d="M70 104 q5 -5 10 0"/><path d="M104 124 q5 -5 10 0"/>
+  </g>
+  <g fill="#4b9a3f">
+    <ellipse cx="108" cy="98" rx="6" ry="2.8" transform="rotate(-20 108 98)"/><ellipse cx="78" cy="118" rx="6" ry="2.8" transform="rotate(18 78 118)"/><ellipse cx="124" cy="82" rx="5" ry="2.4" transform="rotate(30 124 82)"/>
+  </g>
+  <!-- brilho -->
+  <path d="M36 92 Q64 56 104 52" stroke="#fff" stroke-width="3" stroke-linecap="round" fill="none" opacity=".3"/>
+</svg>

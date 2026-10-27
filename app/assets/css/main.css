@@ -1,0 +1,175 @@
+:root {
+  --bg: #f6f1ea;
+  --surface: #ffffff;
+  --surface-2: #efe7dc;
+  --border: #d8cbbb;
+  --border-strong: #8a7663;
+  --fg: #1f1712;
+  --muted: #5f5145;
+  --primary: #d1420d;
+  --primary-fg: #ffffff;
+  --accent-text: #b53f08;
+  --success: #1f7a45;
+  --success-fg: #ffffff;
+  --bubble: #dff3e4;
+  --stage-glow: #ffffff;
+  --shadow: 0 -10px 30px rgba(60, 35, 15, 0.16);
+
+  --font-display: 'Montserrat', 'Segoe UI', sans-serif;
+  --font-body: 'Montserrat', 'Segoe UI', system-ui, sans-serif;
+  --font-destaque: 'Limelight', Georgia, serif;
+  --radius: 0.75rem;
+  --radius-lg: 0.875rem;
+
+  color-scheme: light;
+}
+
+html.dark {
+  --bg: #17120e;
+  --surface: #231c16;
+  --surface-2: #2c231b;
+  --border: #4a3c2f;
+  --border-strong: #8a7663;
+  --fg: #f4ece1;
+  --muted: #b3a696;
+  --primary: #d1420d;
+  --primary-fg: #ffffff;
+  --accent-text: #ff9a62;
+  --success: #1f7a45;
+  --success-fg: #ffffff;
+  --bubble: #1d3a2a;
+  --stage-glow: #2e241b;
+  --shadow: 0 -12px 40px rgba(0, 0, 0, 0.55);
+
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+@supports selector(::-webkit-scrollbar) {
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track,
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border: 2px solid transparent;
+    border-radius: 999px;
+    background: var(--border-strong);
+    background-clip: padding-box;
+  }
+
+  ::-webkit-scrollbar-button {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-strong) transparent;
+  }
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.4;
+  color: var(--fg);
+  background: var(--bg);
+  -webkit-text-size-adjust: 100%;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+#__nuxt {
+  height: 100%;
+}
+
+::selection {
+  background: var(--primary);
+  color: var(--primary-fg);
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+button,
+input {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+:focus-visible {
+  outline: 3px solid var(--fg);
+  outline-offset: 2px;
+}
+
+.titulo {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.obrigatorio {
+  color: tomato;
+  font-weight: 700;
+  margin-left: 0.125rem;
+}
+
+.destaque {
+  font-family: var(--font-destaque);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

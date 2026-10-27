@@ -1,0 +1,128 @@
+.admin-shell,
+.modal-overlay {
+  --black: #1f1712;
+  --lGray: var(--bs-secondary-bg);
+  --white: var(--bs-body-bg);
+}
+
+:root {
+  --bs-primary: var(--primary);
+  --bs-primary-rgb: 209, 66, 13;
+  --bs-link-color-rgb: 168, 44, 22;
+  --bs-link-hover-color-rgb: 130, 34, 17;
+  --bs-font-sans-serif: var(--font-body);
+}
+
+html.dark {
+  --bs-primary-rgb: 209, 66, 13;
+  --bs-link-color-rgb: 240, 164, 143;
+  --bs-link-hover-color-rgb: 255, 208, 194;
+}
+
+[data-bs-theme='dark'] {
+  --bs-body-bg: #17120e;
+  --bs-body-bg-rgb: 23, 18, 14;
+  --bs-secondary-bg: #231c16;
+  --bs-secondary-bg-rgb: 35, 28, 22;
+  --bs-tertiary-bg: #1d1712;
+  --bs-tertiary-bg-rgb: 29, 23, 18;
+  --bs-border-color: #4a3c2f;
+  --bs-border-color-translucent: rgba(244, 236, 225, 0.12);
+}
+
+html[data-bs-theme='dark'] body {
+  background-color: var(--bs-body-bg);
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--primary);
+  --bs-btn-border-color: var(--primary);
+  --bs-btn-hover-bg: #a93509;
+  --bs-btn-hover-border-color: #a93509;
+  --bs-btn-active-bg: #a93509;
+  --bs-btn-active-border-color: #a93509;
+  --bs-btn-disabled-bg: var(--primary);
+  --bs-btn-disabled-border-color: var(--primary);
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--accent-text);
+  --bs-btn-border-color: var(--primary);
+  --bs-btn-hover-bg: var(--primary);
+  --bs-btn-hover-border-color: var(--primary);
+  --bs-btn-active-bg: var(--primary);
+  --bs-btn-active-border-color: var(--primary);
+}
+
+.text-primary {
+  color: var(--accent-text) !important;
+}
+
+.text-bg-primary {
+  background-color: var(--primary) !important;
+}
+
+.form-control:focus,
+.form-select:focus,
+.form-check-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 0.2rem rgba(var(--bs-primary-rgb), 0.3);
+}
+
+.form-check-input:checked {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.form-check-input {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.badge-ativo,
+.badge-inativo {
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.75rem;
+  display: inline-block;
+}
+
+.badge-ativo {
+  background-color: rgba(34, 197, 94, 0.14);
+  color: #15803d;
+}
+
+.badge-inativo {
+  background-color: rgba(239, 68, 68, 0.14);
+  color: #b91c1c;
+}
+
+html.dark .badge-ativo {
+  color: #6fd698;
+}
+
+html.dark .badge-inativo {
+  color: #ff9d9d;
+}
+
+.admin-shell .card {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border-radius: 0.5rem;
+}
+
+.admin-shell .nome-destaque {
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.admin-shell table th {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--bs-secondary-color);
+}
+
+.admin-shell table td {
+  vertical-align: middle;
+}
