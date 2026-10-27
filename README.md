@@ -28,13 +28,16 @@ Nuxt 4, Vue 3, TypeScript, Pinia, Three.js, axios e Bootstrap (só no painel). A
 
 ## Rodar com Docker
 
-Só precisa do [Docker](https://www.docker.com/products/docker-desktop/). Clone este repositório e, dentro da pasta dele, rode:
+Só precisa do [Git](https://git-scm.com/) e do [Docker](https://www.docker.com/products/docker-desktop/). Clone este repositório e o da API lado a lado, na mesma pasta, e suba tudo de dentro de `lancelotPizzas`:
 
 ```bash
+git clone https://github.com/nathanhenrick/lancelotPizzas.git
+git clone https://github.com/nathanhenrick/backendLancelotPizzas.git
+cd lancelotPizzas
 docker compose up --build
 ```
 
-O `docker-compose.yml` baixa e constrói a API direto do GitHub e sobe três containers: MySQL, API e site. Na primeira vez, a API cria as tabelas e o cardápio de exemplo sozinha.
+O `docker-compose.yml` constrói a API a partir da pasta `../backendLancelotPizzas` e sobe três containers: MySQL, API e site. Na primeira vez, a API cria as tabelas e o cardápio de exemplo sozinha.
 
 | O quê | Endereço |
 | --- | --- |
@@ -48,7 +51,7 @@ Acesso ao painel: `admin@montapizza.local` / `montapizza123`. São credenciais s
 Outras opções:
 
 - Portas ocupadas: `SITE_PORT=3100 API_PORT=8100 docker compose up --build`.
-- API clonada localmente em vez da do GitHub: `BACKEND_PATH=../backendLancelotPizzas docker compose up --build`.
+- API clonada em outra pasta: `BACKEND_PATH=/caminho/da/api docker compose up --build`.
 - Parar: `docker compose down`. Parar e apagar o banco: `docker compose down -v`.
 
 No Docker o navegador chama a API por `localhost`, mas o servidor do Nuxt (SSR) a chama pela rede interna. Por isso existe `NUXT_API_BASE_URL_SERVIDOR`, que só vale no servidor.
