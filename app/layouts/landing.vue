@@ -1,5 +1,5 @@
 <template>
-  <div class="landing">
+  <div class="landing d-flex flex-column min-vh-100">
     <SkipLink alvo="#conteudo">Pular para o conteúdo</SkipLink>
     <LandingCabecalho />
     <slot />
@@ -8,13 +8,12 @@
 </template>
 
 <script setup lang="ts">
-import '~/assets/css/landing-container.css'
-</script>
+import 'bootstrap/dist/css/bootstrap.min.css'
+import '~/assets/css/landing.css'
 
-<style scoped>
-.landing {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-</style>
+const colorMode = useColorMode()
+
+watchEffect(() => {
+  if (import.meta.client) document.documentElement.setAttribute('data-bs-theme', colorMode.value === 'dark' ? 'dark' : 'light')
+})
+</script>

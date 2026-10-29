@@ -2,96 +2,107 @@
   <main id="conteudo" ref="raiz" tabindex="-1" class="lp">
     <section class="hero" aria-labelledby="hero-titulo">
       <div class="hero__miolo container">
-        <div class="hero__texto">
-          <h1 id="hero-titulo" class="hero__titulo">
-            <span class="hero__linha1">Você <span class="hero__marca">monta</span> a pizza.</span>
-            <span class="hero__linha2">O pedido chega pronto no nosso <span class="hero__zap">WhatsApp</span>.</span>
-          </h1>
-          <p class="hero__sub">
-            Escolha até 4 sabores na mesma pizza, veja ela em 3D antes de pedir e envie o pedido pelo WhatsApp. Entrega ou retirada no balcão.
-          </p>
-          <div class="hero__acoes">
-            <NuxtLink to="/loja" class="btn btn--claro">Pedir agora<BaseIcon nome="avancar" :tamanho="20" /></NuxtLink>
-            <NuxtLink to="/sobre" class="btn btn--fantasma">Conhecer a pizzaria</NuxtLink>
+        <div class="row align-items-center g-4 g-lg-5">
+          <div class="col-lg-6">
+            <h1 id="hero-titulo" class="hero__titulo d-grid gap-3 mb-0">
+              <span class="hero__linha1">Você <span class="hero__marca">monta</span> a pizza.</span>
+              <span class="hero__linha2">O pedido chega pronto no nosso <span class="hero__zap">WhatsApp</span>.</span>
+            </h1>
+            <p class="hero__sub mt-4 mb-0">
+              Escolha até 4 sabores na mesma pizza, veja ela em 3D antes de pedir e envie o pedido pelo WhatsApp. Entrega ou retirada no balcão.
+            </p>
+            <div class="d-flex flex-wrap gap-2 mt-4">
+              <NuxtLink to="/loja" class="btn btn-light btn-lg fw-bold d-inline-flex align-items-center justify-content-center gap-2">Pedir agora<BaseIcon nome="avancar" :tamanho="20" /></NuxtLink>
+              <NuxtLink to="/sobre" class="btn btn-outline-light btn-lg fw-bold d-inline-flex align-items-center justify-content-center">Conhecer a pizzaria</NuxtLink>
+            </div>
+            <p class="hero__nota small mt-3 mb-0">Sem cadastro: monte a pizza, escolha entrega ou retirada e envie.</p>
           </div>
-          <p class="hero__nota">Sem cadastro: monte a pizza, escolha entrega ou retirada e envie.</p>
-        </div>
 
-        <div class="hero__arte">
-          <img
-            src="/img/lp/pizza-recorte.webp?v=6"
-            alt="Pizza 3D dividida em quatro partes, cada uma com um sabor, montada no site de pedidos."
-            width="1728"
-            height="1346"
-            fetchpriority="high"
-            class="hero__pizza"
-          >
-          <LandingJanela
-            arquivo="montador-celular"
-            alt="O site de pedidos no celular, com a pizza dividida em quatro partes."
-            :largura="780"
-            :altura="1688"
-            celular
-            prioridade
-            class="hero__celular"
-          />
+          <div class="col-lg-6">
+            <div class="hero__arte position-relative">
+              <img
+                src="/img/lp/pizza-recorte.webp?v=6"
+                alt="Pizza 3D dividida em quatro partes, cada uma com um sabor, montada no site de pedidos."
+                width="1728"
+                height="1346"
+                fetchpriority="high"
+                class="hero__pizza position-absolute"
+              >
+              <LandingJanela
+                arquivo="montador-celular"
+                alt="O site de pedidos no celular, com a pizza dividida em quatro partes."
+                :largura="780"
+                :altura="1688"
+                celular
+                prioridade
+                class="hero__celular position-absolute"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>
-
-    <ul class="fatos container" aria-label="Resumo do pedido online">
-      <li v-for="(f, i) in FATOS" :key="f.t" data-revela :style="{ '--i': i }"><strong>{{ f.t }}</strong> {{ f.d }}</li>
-    </ul>
-
-    <div class="guia container">
-      <nav class="guia__indice" aria-label="Nesta página">
-        <p class="guia__indice-titulo">Nesta página</p>
-        <ol>
-          <li v-for="(item, i) in INDICE" :key="item.id"><a :href="`#${item.id}`" @click.prevent="rolar(item.id)"><span>{{ String(i + 1).padStart(2, '0') }}</span>{{ item.rotulo }}</a></li>
-        </ol>
-      </nav>
-
-      <div class="guia__corpo">
-        <section v-for="(ex, i) in EXEMPLOS" :id="ex.id" :key="ex.id" class="exemplo" :aria-labelledby="`ex-${ex.id}`">
-          <h2 :id="`ex-${ex.id}`" class="exemplo__titulo" data-revela><span class="exemplo__num" aria-hidden="true">{{ i + 1 }}</span>{{ ex.titulo }}</h2>
-          <div class="exemplo__telas">
-            <LandingJanela
-              :arquivo="ex.arquivo"
-              :alt="ex.alt"
-              data-revela
-            />
-            <LandingJanela
-              :arquivo="`${ex.arquivo}-celular`"
-              :alt="ex.altCelular"
-              :largura="780"
-              :altura="1688"
-              celular
-              class="exemplo__celular"
-              data-revela
-              :style="{ '--i': 2 }"
-            />
-          </div>
-          <dl class="meta" data-revela>
-            <div><dt>Como pedir</dt><dd>{{ ex.cliente }}</dd></div>
-            <div><dt>O que tem</dt><dd>{{ ex.recursos }}</dd></div>
-            <div class="meta__largo"><dt>Na prática</dt><dd>{{ ex.texto }}</dd></div>
-          </dl>
-        </section>
-      </div>
-    </div>
 
     <div class="container">
-    <section class="final" aria-labelledby="final-titulo" data-revela>
-      <div class="final__texto">
-        <h2 id="final-titulo" class="final__titulo">Bateu a fome? Monte a sua pizza</h2>
-        <p>Escolha os sabores, veja a pizza em 3D e envie o pedido pelo WhatsApp.</p>
-        <div class="hero__acoes">
-          <NuxtLink to="/loja" class="btn btn--claro">Pedir agora<BaseIcon nome="avancar" :tamanho="20" /></NuxtLink>
-          <NuxtLink to="/sobre" class="btn btn--fantasma">Conhecer a pizzaria</NuxtLink>
+      <ul class="fatos row row-cols-2 row-cols-md-4 g-3 list-unstyled mt-5 mb-0 py-3 border-top border-bottom" aria-label="Resumo do pedido online">
+        <li v-for="(f, i) in FATOS" :key="f.t" class="col" data-revela :style="{ '--i': i }"><strong class="d-block">{{ f.t }}</strong> {{ f.d }}</li>
+      </ul>
+
+      <div class="row gx-xl-5 pt-5 pb-3">
+        <div class="col-xl-2 d-none d-xl-block">
+          <nav class="guia__indice sticky-top" aria-label="Nesta página">
+            <p class="guia__indice-titulo text-uppercase fw-bold mb-3">Nesta página</p>
+            <ol class="nav flex-column border-start border-2 ps-3 list-unstyled mb-0">
+              <li v-for="(item, i) in INDICE" :key="item.id" class="nav-item"><a class="nav-link d-flex gap-2 px-0" :href="`#${item.id}`" @click.prevent="rolar(item.id)"><span>{{ String(i + 1).padStart(2, '0') }}</span>{{ item.rotulo }}</a></li>
+            </ol>
+          </nav>
+        </div>
+
+        <div class="col-xl-10 d-grid gap-5">
+          <section v-for="(ex, i) in EXEMPLOS" :id="ex.id" :key="ex.id" class="exemplo" :aria-labelledby="`ex-${ex.id}`">
+            <h2 :id="`ex-${ex.id}`" class="exemplo__titulo d-flex align-items-baseline gap-3 mb-4" data-revela><span class="exemplo__num" aria-hidden="true">{{ i + 1 }}</span>{{ ex.titulo }}</h2>
+            <div class="row g-3 g-md-4 align-items-end">
+              <div class="col-md">
+                <LandingJanela
+                  :arquivo="ex.arquivo"
+                  :alt="ex.alt"
+                  data-revela
+                />
+              </div>
+              <div class="exemplo__celular col-8 col-sm-5 col-md-auto mx-auto">
+                <LandingJanela
+                  :arquivo="`${ex.arquivo}-celular`"
+                  :alt="ex.altCelular"
+                  :largura="780"
+                  :altura="1688"
+                  celular
+                  data-revela
+                  :style="{ '--i': 2 }"
+                />
+              </div>
+            </div>
+            <dl class="meta row g-4 mt-0 mb-0" data-revela>
+              <div class="col-md-6"><dt>Como pedir</dt><dd>{{ ex.cliente }}</dd></div>
+              <div class="col-md-6"><dt>O que tem</dt><dd>{{ ex.recursos }}</dd></div>
+              <div class="col-12"><dt>Na prática</dt><dd>{{ ex.texto }}</dd></div>
+            </dl>
+          </section>
         </div>
       </div>
-      <img src="/img/lp/pizza-recorte.webp?v=6" alt="" width="1728" height="1346" loading="lazy" class="final__pizza">
-    </section>
+
+      <section class="final row align-items-center g-4 mx-0 my-5 rounded-5 overflow-hidden position-relative p-4 p-md-5" aria-labelledby="final-titulo" data-revela>
+        <div class="final__texto col-lg-7">
+          <h2 id="final-titulo" class="final__titulo mb-3">Bateu a fome? Monte a sua pizza</h2>
+          <p class="mb-0">Escolha os sabores, veja a pizza em 3D e envie o pedido pelo WhatsApp.</p>
+          <div class="d-flex flex-wrap gap-2 mt-4">
+            <NuxtLink to="/loja" class="btn btn-light btn-lg fw-bold d-inline-flex align-items-center justify-content-center gap-2">Pedir agora<BaseIcon nome="avancar" :tamanho="20" /></NuxtLink>
+            <NuxtLink to="/sobre" class="btn btn-outline-light btn-lg fw-bold d-inline-flex align-items-center justify-content-center">Conhecer a pizzaria</NuxtLink>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <img src="/img/lp/pizza-recorte.webp?v=6" alt="" width="1728" height="1346" loading="lazy" class="final__pizza">
+        </div>
+      </section>
     </div>
   </main>
 </template>
@@ -172,7 +183,6 @@ const EXEMPLOS = [
     radial-gradient(40% 60% at 6% 100%, rgba(95, 20, 4, 0.55) 0%, rgba(95, 20, 4, 0) 70%),
     radial-gradient(30% 45% at 38% 0%, rgba(255, 140, 60, 0.35) 0%, rgba(255, 140, 60, 0) 70%),
     linear-gradient(135deg, #c13e0a 0%, #df5410 55%, #f26a14 100%);
-  --pad: clamp(1rem, 4vw, 1.5rem);
   color: var(--fg);
   overflow-x: clip;
 }
@@ -199,34 +209,12 @@ const EXEMPLOS = [
 
 .btn {
   min-height: 3.25rem;
-  padding: 0 1.5rem;
   border-radius: var(--radius-lg);
-  border: 1.5px solid transparent;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  font-weight: 700;
-  text-decoration: none;
   transition: transform 0.15s ease, background-color 0.2s ease;
 }
 
 .btn:hover {
   transform: translateY(-1px);
-}
-
-.btn--claro {
-  background: var(--lp-creme);
-  color: var(--lp-escuro);
-}
-
-.btn--fantasma {
-  border-color: var(--lp-creme);
-  color: var(--lp-creme);
-}
-
-.btn--fantasma:hover {
-  background: rgba(241, 233, 221, 0.12);
 }
 
 .hero {
@@ -254,13 +242,9 @@ const EXEMPLOS = [
   position: relative;
   transition: opacity 0.3s ease;
   padding-block: 3rem 4.5rem;
-  display: grid;
-  gap: 2rem;
 }
 
 .hero__titulo {
-  display: grid;
-  gap: 0.875rem;
   font-family: var(--font-display);
   letter-spacing: -0.02em;
 }
@@ -300,22 +284,12 @@ const EXEMPLOS = [
 }
 
 .hero__sub {
-  margin-top: 1.25rem;
   max-width: 32rem;
   font-size: 1.125rem;
   line-height: 1.6;
 }
 
-.hero__acoes {
-  margin-top: 1.75rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-
 .hero__nota {
-  margin-top: 1rem;
-  font-size: 0.875rem;
   opacity: 0.9;
 }
 
@@ -325,12 +299,10 @@ const EXEMPLOS = [
 }
 
 .hero__arte {
-  position: relative;
   min-height: 22rem;
 }
 
 .hero__pizza {
-  position: absolute;
   top: 0;
   left: -8%;
   width: 118%;
@@ -342,7 +314,6 @@ const EXEMPLOS = [
 }
 
 .hero__celular {
-  position: absolute;
   right: 0;
   bottom: 0;
   width: 8.5rem;
@@ -355,16 +326,6 @@ const EXEMPLOS = [
   }
 }
 
-.fatos {
-  margin-top: 4rem;
-  padding-block: 1.25rem;
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem 1.5rem;
-  border-block: 1px solid var(--border);
-}
-
 .fatos li {
   font-size: 0.875rem;
   color: var(--muted);
@@ -372,34 +333,39 @@ const EXEMPLOS = [
 }
 
 .fatos strong {
-  display: block;
   font-family: var(--font-display);
   font-weight: 800;
   font-size: 1.5rem;
   color: var(--fg);
 }
 
-.guia {
-  padding-block: 4rem 2rem;
-  display: grid;
-  gap: 2rem;
-}
-
 .guia__indice {
-  display: none;
+  top: 6rem;
+  z-index: 1;
 }
 
-.guia__corpo {
-  display: grid;
-  gap: 5rem;
-  min-width: 0;
+.guia__indice-titulo {
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.guia__indice .nav-link {
+  color: var(--fg);
+  font-weight: 600;
+  font-size: 0.9375rem;
+}
+
+.guia__indice .nav-link:hover {
+  color: var(--accent-text);
+}
+
+.guia__indice .nav-link span {
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
 }
 
 .exemplo__titulo {
-  display: flex;
-  gap: 0.75rem;
-  align-items: baseline;
-  margin-bottom: 1.5rem;
   font-family: var(--font-display);
   font-weight: 800;
   font-size: clamp(1.5rem, 4vw, 2.25rem);
@@ -415,26 +381,19 @@ const EXEMPLOS = [
   content: '.';
 }
 
-.exemplo__telas {
-  display: grid;
-  gap: 1.25rem;
-  align-items: end;
-}
-
-.exemplo__celular {
-  width: min(11rem, 60%);
-  justify-self: center;
-}
-
 .meta {
-  margin: 1.5rem 0 0;
-  display: grid;
-  gap: 1.25rem;
+  margin-top: 0.5rem;
   line-height: 1.6;
 }
 
 .meta > div {
-  padding-top: 0.875rem;
+  margin-top: 1.5rem;
+}
+
+.meta > div::before {
+  content: '';
+  display: block;
+  margin-bottom: 0.875rem;
   border-top: 2px solid var(--fg);
 }
 
@@ -449,21 +408,12 @@ const EXEMPLOS = [
 }
 
 .final {
-  margin-block: 4rem;
-  padding: clamp(2rem, 6vw, 4rem);
-  border-radius: 2rem;
   background: var(--lp-vivo);
   color: var(--lp-creme);
-  display: grid;
-  gap: 2rem;
-  align-items: center;
-  overflow: hidden;
-  position: relative;
 }
 
 .final__titulo {
   max-width: 30rem;
-  margin-bottom: 0.75rem;
   font-family: var(--font-display);
   font-weight: 800;
   font-size: clamp(1.75rem, 4.5vw, 2.75rem);
@@ -485,43 +435,19 @@ const EXEMPLOS = [
   filter: drop-shadow(0 18px 24px rgba(0, 0, 0, 0.3));
 }
 
-@media (min-width: 620px) {
-  .fatos {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .meta {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    align-items: start;
-  }
-
-  .meta__largo {
-    grid-column: 1 / -1;
-  }
-}
-
-@media (min-width: 760px) {
-  .exemplo__telas {
-    grid-template-columns: minmax(0, 1fr) 10.5rem;
-    gap: 1.5rem;
-  }
-
+@media (min-width: 768px) {
   .exemplo__celular {
-    width: 100%;
+    width: 10.5rem;
   }
 }
 
-@media (min-width: 960px) {
+@media (min-width: 992px) {
   .lp {
     --lp-glow: 0.7;
   }
 
   .hero__miolo {
-    grid-template-columns: 1.05fr 0.95fr;
-    align-items: center;
     padding-block: 5rem 7rem;
-    gap: 2rem;
   }
 
   .hero__arte {
@@ -540,68 +466,15 @@ const EXEMPLOS = [
     width: 11rem;
   }
 
-  .final {
-    grid-template-columns: 1.1fr 0.9fr;
-  }
-
   .final__pizza {
     width: 125%;
     margin: -20% -20% -30% 0;
   }
 }
 
-@media (min-width: 1100px) {
-  .guia {
-    grid-template-columns: 13rem minmax(0, 1fr);
-    gap: 4rem;
-  }
-
-  .exemplo__telas {
-    grid-template-columns: minmax(0, 1fr) 12rem;
-  }
-
-  .guia__indice {
-    display: block;
-    position: sticky;
-    top: 6rem;
-    align-self: start;
-  }
-
-  .guia__indice-titulo {
-    margin-bottom: 0.75rem;
-    font-size: 0.8125rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-
-  .guia__indice ol {
-    margin: 0;
-    padding: 0 0 0 1rem;
-    list-style: none;
-    border-left: 2px solid var(--border);
-    display: grid;
-    gap: 0.25rem;
-  }
-
-  .guia__indice a {
-    display: flex;
-    gap: 0.625rem;
-    padding: 0.5rem 0;
-    color: var(--fg);
-    font-weight: 600;
-    font-size: 0.9375rem;
-    text-decoration: none;
-  }
-
-  .guia__indice a:hover {
-    color: var(--accent-text);
-  }
-
-  .guia__indice a span {
-    color: var(--muted);
-    font-variant-numeric: tabular-nums;
+@media (min-width: 1200px) {
+  .exemplo__celular {
+    width: 12rem;
   }
 }
 </style>

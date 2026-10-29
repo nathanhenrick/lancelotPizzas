@@ -1,33 +1,35 @@
 <template>
-  <footer class="rodape">
-    <div class="rodape__miolo container">
-      <div class="rodape__marca">
-        <AppLogo formato="horizontal" tom="clara" class="rodape__logo" rotulo="Lancelot Pizzas, página inicial" />
-        <p class="rodape__texto">
-          Pizza montada em 3D, com até 4 sabores, e o pedido enviado pelo WhatsApp.
-        </p>
-        <NuxtLink to="/loja" class="rodape__cta">Pedir agora</NuxtLink>
+  <footer class="rodape mt-auto">
+    <div class="container">
+      <div class="row g-4 g-lg-5">
+        <div class="col-12 col-lg-6">
+          <AppLogo formato="horizontal" tom="clara" class="rodape__logo" rotulo="Lancelot Pizzas, página inicial" />
+          <p class="rodape__texto mt-3 mb-3">
+            Pizza montada em 3D, com até 4 sabores, e o pedido enviado pelo WhatsApp.
+          </p>
+          <NuxtLink to="/loja" class="btn btn-light fw-bold d-inline-flex align-items-center">Pedir agora</NuxtLink>
+        </div>
+
+        <nav v-for="grupo in GRUPOS" :key="grupo.titulo" class="col-6 col-lg-3" :aria-label="grupo.titulo">
+          <p class="rodape__titulo">{{ grupo.titulo }}</p>
+          <ul class="nav flex-column">
+            <li v-for="link in grupo.links" :key="link.rotulo" class="nav-item">
+              <a v-if="link.secao" class="nav-link px-0" :href="`#${link.secao}`" @click.prevent="rolar(link.secao)">{{ link.rotulo }}</a>
+              <a v-else class="nav-link px-0" :href="link.para">{{ link.rotulo }}</a>
+            </li>
+          </ul>
+        </nav>
       </div>
 
-      <nav v-for="grupo in GRUPOS" :key="grupo.titulo" class="rodape__grupo" :aria-label="grupo.titulo">
-        <p class="rodape__titulo">{{ grupo.titulo }}</p>
-        <ul>
-          <li v-for="link in grupo.links" :key="link.rotulo">
-            <a v-if="link.secao" :href="`#${link.secao}`" @click.prevent="rolar(link.secao)">{{ link.rotulo }}</a>
-            <a v-else :href="link.para">{{ link.rotulo }}</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-
-    <div class="rodape__base container">
-      <p>
-        © {{ ano }} Lancelot Pizzas. Todos os direitos reservados. Código protegido pela
-        <a :href="LICENCA" class="rodape__legal" target="_blank" rel="noopener">licença</a>:
-        uso, cópia e distribuição só com autorização do autor.
-      </p>
-      <NuxtLink to="/privacidade" class="rodape__legal">Política de privacidade</NuxtLink>
-      <button type="button" class="rodape__topo" @click="irAoTopo">Voltar ao topo<BaseIcon nome="avancar" :tamanho="16" class="rodape__seta" /></button>
+      <div class="rodape__base d-flex flex-wrap align-items-center justify-content-between gap-3 mt-5 pt-3 small">
+        <p class="mb-0">
+          © {{ ano }} Lancelot Pizzas. Todos os direitos reservados. Código protegido pela
+          <a :href="LICENCA" class="rodape__legal" target="_blank" rel="noopener">licença</a>:
+          uso, cópia e distribuição só com autorização do autor.
+        </p>
+        <NuxtLink to="/privacidade" class="rodape__legal">Política de privacidade</NuxtLink>
+        <button type="button" class="rodape__topo btn btn-link d-inline-flex align-items-center gap-1 text-decoration-none fw-semibold" @click="irAoTopo">Voltar ao topo<BaseIcon nome="avancar" :tamanho="16" class="rodape__seta" /></button>
+      </div>
     </div>
   </footer>
 </template>
@@ -65,23 +67,9 @@ function irAoTopo() {
 
 <style scoped>
 .rodape {
-  margin-top: auto;
   background: #160f09;
   color: #f1e9dd;
   padding: 3.5rem 0 calc(1.5rem + env(safe-area-inset-bottom));
-}
-
-.rodape__miolo {
-  display: grid;
-  gap: 2.5rem 2rem;
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.rodape__marca {
-  grid-column: 1 / -1;
-  display: grid;
-  gap: 1rem;
-  justify-items: start;
 }
 
 .rodape__logo {
@@ -94,18 +82,6 @@ function irAoTopo() {
   line-height: 1.6;
 }
 
-.rodape__cta {
-  min-height: 2.75rem;
-  padding: 0 1.25rem;
-  display: inline-flex;
-  align-items: center;
-  border-radius: 0.75rem;
-  background: #f1e9dd;
-  color: #160f09;
-  font-weight: 700;
-  text-decoration: none;
-}
-
 .rodape__titulo {
   margin-bottom: 0.75rem;
   font-size: 0.75rem;
@@ -115,35 +91,19 @@ function irAoTopo() {
   color: #ff9a62;
 }
 
-.rodape__grupo ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.rodape__grupo a {
-  display: inline-block;
-  padding: 0.4375rem 0;
+.rodape .nav-link {
+  padding-block: 0.4375rem;
   color: #f1e9dd;
-  text-decoration: none;
   font-weight: 500;
 }
 
-.rodape__grupo a:hover {
+.rodape .nav-link:hover {
   text-decoration: underline;
   text-underline-offset: 0.25rem;
 }
 
 .rodape__base {
-  margin-top: 3rem;
-  padding-top: 1.25rem;
   border-top: 1px solid #3a2e24;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem 1.5rem;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 0.875rem;
   color: #c9bcab;
 }
 
@@ -155,13 +115,7 @@ function irAoTopo() {
 .rodape__topo {
   min-height: 2.75rem;
   padding: 0 0.25rem;
-  border: 0;
-  background: transparent;
   color: #f1e9dd;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.375rem;
-  font-weight: 600;
 }
 
 .rodape__seta {
@@ -170,15 +124,5 @@ function irAoTopo() {
 
 .rodape :focus-visible {
   outline-color: #f1e9dd;
-}
-
-@media (min-width: 900px) {
-  .rodape__miolo {
-    grid-template-columns: 1.5fr repeat(3, 1fr);
-  }
-
-  .rodape__marca {
-    grid-column: auto;
-  }
 }
 </style>

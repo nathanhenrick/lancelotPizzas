@@ -8,7 +8,7 @@ Se `../backendMontaPizza` estiver adicionado à sessão, o `CLAUDE.md` dele **n�
 
 ## Stack real (confira antes de assumir outra coisa)
 
-- Nuxt 4 + Vue 3 + TypeScript, Pinia, axios, three.js, Bootstrap (só nos layouts do painel).
+- Nuxt 4 + Vue 3 + TypeScript, Pinia, axios, three.js, Bootstrap (layouts da landing, do login e do painel; as telas de pedido não usam).
 - Módulos: `@nuxt/a11y`, `@nuxt/fonts`, `@nuxtjs/color-mode`, `@pinia/nuxt`.
 - Páginas públicas têm SSR (`/`, `/pizza`, `/esfirras`, `/sobre`); `/admin/**` roda com `ssr: false` (`routeRules` em `nuxt.config.ts`).
 - Não há suíte de testes nem lint configurados: os scripts são `dev`, `build`, `generate` e `preview`. A verificação mínima é `npx nuxt build` e conferir a tela no navegador. Não diga que testes passaram sem rodá-los.

@@ -58,6 +58,7 @@ usePaginaSeo({
 }
 
 .priv__texto {
+  margin: 0;
   line-height: 1.7;
   white-space: pre-line;
   color: var(--fg);
@@ -81,6 +82,7 @@ usePaginaSeo({
 }
 
 .priv__legal {
+  margin: 0;
   font-size: 0.8125rem;
   color: var(--muted);
 }
