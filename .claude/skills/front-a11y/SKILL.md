@@ -13,7 +13,7 @@ Pedidos de acessibilidade, ou ao criar/alterar telas, componentes, modais, formu
 - `SkipLink`, `LiveAnnouncer` + `useAnuncio` (anúncios), `useReducedMotion`, foco gerenciado em `FlavorPicker`/`EsfirraAjuste` (foco no título ao abrir, volta ao fechar), alternativa em lista ao 3D (`PartList`, `ProdutoLista`), `SegmentedControl` com radios nativos.
 
 ## Procedimento
-1. **Mapear o escopo**: páginas `/`, `/pizza`, `/esfirras`, `/sobre`, e o painel `/admin/**` (Bootstrap).
+1. **Mapear o escopo**: páginas `/`, `/pizza`, `/esfirras`, `/sobre`, `/login` e o painel `/admin/**` (a landing, o login e o painel usam Bootstrap).
 2. **Teclado**: percorra com Tab/Shift+Tab/Enter/Espaço/Esc. Nada fica inalcançável; ordem lógica; foco visível (≥ 3:1) e nunca preso fora de modais; Esc fecha overlays; o que fica atrás de um overlay está `inert`.
 3. **Semântica e nomes**: um `h1` por página, hierarquia de títulos, landmarks (`main`, `header`, `nav`), botões vs links corretos, todo controle com nome acessível (texto visível dentro do nome — WCAG 2.5.3), `aria-pressed`/`aria-selected` coerentes, `aria-live` só onde há atualização relevante.
 4. **Formulários**: `label` associado, obrigatoriedade indicada além da cor, erros descritos em texto e ligados ao campo (`aria-describedby`/`aria-invalid`), sem perda de dados ao errar.

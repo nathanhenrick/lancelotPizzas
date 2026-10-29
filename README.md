@@ -107,7 +107,7 @@ Telas: Dashboard, Pedidos, Sabores (salgadas e doces), Tamanhos e preços, Borda
 
 - **Login** em `/login`. Sem sessão, qualquer tela do painel leva para lá e volta depois de entrar. O primeiro acesso é criado pelo seeder da API.
 - Layout em `layouts/admin.vue`; o menu é a lista `MENU` no topo do arquivo. A tela de login usa `layouts/auth.vue`.
-- Bootstrap é carregado nos layouts `landing`, `admin` e `auth` (Bootstrap Icons, só no painel e no login). O plugin `plugins/bootstrap-isolado.client.ts` recarrega a página ao sair deles para `/pizza`, `/esfirras` ou `/loja`, que não usam Bootstrap, para o reboot dele não vazar para essas telas.
+- Bootstrap é carregado nos layouts `landing`, `admin` e `auth` (os ícones Bootstrap Icons só no painel e no login). O plugin `plugins/bootstrap-isolado.client.ts` recarrega a página ao sair deles para `/pizza`, `/esfirras` ou `/loja`, que não usam Bootstrap, para o reboot dele não vazar para essas telas.
 - As telas de cadastro seguem o mesmo molde: `useCrud` (carregar, buscar, paginar), `ModalTemplate` com o formulário, tabela no desktop e cartões no celular.
 - A lista de pedidos se atualiza sozinha a cada 30 s.
 
